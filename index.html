@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CV — [Họ Tên]</title>
+  <meta name="description" content="Mẫu CV đơn trang với nền linear-gradient, HTML & CSS thuần">
+  <style>
+    /* ---------- Reset & base ---------- */
+    :root{
+      --bg1:#0f172a; /* deep navy */
+      --bg2:#0b3b68; /* darker blue */
+      --card: rgba(255,255,255,0.06);
+      --glass: rgba(255,255,255,0.06);
+      --accent: rgba(255,255,255,0.85);
+      --muted: rgba(255,255,255,0.7);
+      --chip: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      /* Linear gradient background (CSS3) */
+      background: linear-gradient(135deg, var(--bg1) 0%, #08304a 30%, #1a6b8f 70%, #3dd7ff 100%);
+      color:var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    /* ---------- Card ---------- */
+    .cv-card{
+      width:100%;
+      max-width:1100px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      backdrop-filter: blur(8px) saturate(120%);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:0;
+    }
+
+    /* ---------- Left column (profile) ---------- */
+    .profile{
+      padding:36px 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:18px;
+    }
+
+    .avatar{
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#8be7ff22,#ffffff11);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      border:2px solid rgba(255,255,255,0.06);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    h1{font-size:22px;margin:0}
+    p.title{margin:0;font-weight:600;color:var(--muted);font-size:14px}
+    .contact{width:100%;margin-top:8px;display:flex;flex-direction:column;gap:8px}
+    .contact a{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--accent);font-size:14px}
+    .contact svg{width:16px;height:16px;opacity:0.9}
+
+    .skills{width:100%;margin-top:6px}
+    .skill{margin:10px 0}
+    .skill .meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:6px}
+    .skill .bar{height:9px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden}
+    .skill .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#00e0ff,#4ac6ff)}
+
+    .download{margin-top:8px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));cursor:pointer;text-decoration:none;color:var(--accent);font-weight:600;font-size:14px
+    }
+
+    /* ---------- Right column (details) ---------- */
+    .details{padding:32px 36px}
+    .summary{display:flex;gap:20px;align-items:flex-start}
+    .summary p{margin:0;color:var(--muted);line-height:1.5}
+
+    .section{margin-top:22px}
+    .section h3{margin:0 0 12px 0;font-size:16px}
+    .list{display:flex;flex-direction:column;gap:12px}
+
+    .job{padding:12px 14px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02)}
+    .job h4{margin:0 0 6px 0;font-size:15px}
+    .job p{margin:0;font-size:13px;color:var(--muted)}
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:6px 10px;border-radius:999px;background:var(--chip);font-size:13px;color:var(--accent);border:1px solid rgba(255,255,255,0.03)}
+
+    /* ---------- Footer (small) ---------- */
+    .small{font-size:13px;color:var(--muted);margin-top:16px}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:880px){
+      .cv-card{grid-template-columns:1fr;}
+      .profile{flex-direction:row;align-items:center;text-align:left;padding:18px;gap:14px}
+      .avatar{width:84px;height:84px}
+      .details{padding:22px}
+    }
+
+    @media (max-width:420px){
+      body{padding:20px}
+      .cv-card{border-radius:14px}
+    }
+  </style>
+</head>
+<body>
+  <article class="cv-card" role="document">
+    <!-- LEFT: Profile -->
+    <aside class="profile" aria-label="Thông tin cá nhân">
+      <div class="avatar" aria-hidden="true">
+        <!-- Replace src with your photo -->
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Ảnh đại diện">
+      </div>
+      <div>
+        <h1>Đoàn Thanh Tùng</h1>
+        <p class="title">ID engineer</p>
+      </div>
+
+      <div class="contact" aria-label="Thông tin liên hệ">
+        <a href="mailto:email@example.com"><svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M3 6.5L12 13L21 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> email@example.com</a>
+        <a href="#"><svg viewBox="0 0 24 24" fill="none" aria-hidden><path d="M3 8v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 8l9 5 9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Hà Nội, Việt Nam</a>
+      </div>
+
+      <div class="skills" aria-label="Kỹ năng">
+        <div class="skill">
+          <div class="meta"><span>HTML &amp; CSS</span><span>95%</span></div>
+          <div class="bar"><div class="fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="meta"><span>JavaScript</span><span>85%</span></div>
+          <div class="bar"><div class="fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill">
+          <div class="meta"><span>React</span><span>78%</span></div>
+          <div class="bar"><div class="fill" style="width:78%"></div></div>
+        </div>
+      </div>
+
+      <div class="download">
+        <a class="btn" href="#" download="CV-[HoTen].pdf">⬇️ Tải CV</a>
+      </div>
+    </aside>
+
+    <!-- RIGHT: Details -->
+    <main class="details" role="main">
+      <div class="summary">
+        <div style="flex:1">
+          <h2 style="margin:0 0 8px 0">Giới thiệu ngắn</h2>
+          <p>Xin chào — tôi là Đoàn Thanh Tùng, một sinh viên chuyên xây dựng giao diện web đẹp, hiệu năng cao và thân thiện với người dùng. Tôi thích tối ưu hóa trải nghiệm người dùng, viết mã gọn gàng và hợp tác tốt trong đội ngũ.</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <h3>Kinh nghiệm</h3>
+        <div class="list">
+          <div class="job">
+            <h4>ANTI — Frontend Developer</h4>
+            <p><strong>2022 — Nay</strong> • Làm giao diện chính cho sản phẩm quản lý, tối ưu tốc độ, hợp tác với backend để hoàn thiện tính năng.</p>
+          </div>
+
+          <div class="job">
+            <h4>ADOS — Web Developer (Thực tập)</h4>
+            <p><strong>2021 — 2022</strong> • Xây dựng landing page, cải thiện CSS responsive, hỗ trợ QA và test cross-browser.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Dự án &amp; Kỹ thuật</h3>
+        <div class="chips" role="list">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS3</span>
+          <span class="chip">Flexbox / Grid</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">React</span>
+          <span class="chip">Responsive</span>
+        </div>
+
+        <div class="small">Mẹo: thay ảnh, thay nội dung, rồi lưu thành file .html để dùng. Nền là linear-gradient CSS3 — bạn có thể thay các màu trong :root.</div>
+      </section>
+
+      <section class="section">
+        <h3>Học vấn</h3>
+        <div class="list">
+          <div class="job">
+            <h4>[Trường Đại học] — Ngành CNTT</h4>
+            <p><strong>2018 — 2022</strong></p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </article>
+</body>
+</html>
